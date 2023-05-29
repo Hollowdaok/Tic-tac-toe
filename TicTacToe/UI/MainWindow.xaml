@@ -1,0 +1,57 @@
+﻿<Window x:Class="TicTacToe.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToe.UI"
+        mc:Ignorable="d"
+        Title="Tic Tac Toe" Height="400" Width="500">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding StatusText}" Grid.Row="0"/>
+        <Button Command="{Binding ResetCommand}" Content="Restart" Grid.Row="1"/>
+        <Viewbox Grid.Row="2">
+            <Grid x:Name="TicTacToe" TextBlock.FontSize="16" TextBlock.FontFamily="Arial">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="24"/>
+                    <ColumnDefinition Width="24"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Command="{Binding CellClickCommand}" Tag="0" Content="{Binding PlayerIcons[0]}"
+                        Grid.Column="0" Grid.Row="0" CommandParameter="0"/>
+                <Button Command="{Binding CellClickCommand}" Tag="1" Content="{Binding PlayerIcons[1]}"
+                        Grid.Column="1" Grid.Row="0" CommandParameter="1"/>
+                <Button Command="{Binding CellClickCommand}" Tag="2" Content="{Binding PlayerIcons[2]}"
+                        Grid.Column="2" Grid.Row="0" CommandParameter="2"/>
+                <Button Command="{Binding CellClickCommand}" Tag="3" Content="{Binding PlayerIcons[3]}"
+                        Grid.Column="0" Grid.Row="1" CommandParameter="3"/>
+                <Button Command="{Binding CellClickCommand}" Tag="4" Content="{Binding PlayerIcons[4]}"
+                        Grid.Column="1" Grid.Row="1" CommandParameter="4"/>
+                <Button Command="{Binding CellClickCommand}" Tag="5" Content="{Binding PlayerIcons[5]}"
+                        Grid.Column="2" Grid.Row="1" CommandParameter="5"/>
+                <Button Command="{Binding CellClickCommand}" Tag="6" Content="{Binding PlayerIcons[6]}"
+                        Grid.Column="0" Grid.Row="2" CommandParameter="6"/>
+                <Button Command="{Binding CellClickCommand}" Tag="7" Content="{Binding PlayerIcons[7]}"
+                        Grid.Column="1" Grid.Row="2" CommandParameter="7"/>
+                <Button Command="{Binding CellClickCommand}" Tag="8" Content="{Binding PlayerIcons[8]}"
+                        Grid.Column="2" Grid.Row="2" CommandParameter="8"/>
+            </Grid>
+        </Viewbox>
+        
+
+    </Grid>
+</Window>
